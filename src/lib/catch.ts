@@ -39,19 +39,20 @@ export type Ball = {
   mult: (i: CatchInput) => number
   rateBonus?: (i: CatchInput) => number
   always?: boolean
+  top?: boolean
 }
 
 const icon = (f: string) => `https://git.pokebedrock.com/pokebedrock/pokebedrock-res/raw/branch/main/textures/items/ball/${f}.png`
 
 export const BALLS: Ball[] = [
-  { id: 'quick', es: 'Veloz Ball', en: 'Quick Ball', icon: icon('quick_ball'), rule: '×5 si la lanzas en el turno 1.', recipe: 'Azul + amarillo + azul', mult: (i) => (i.turn <= 1 ? 5 : 1) },
-  { id: 'dusk', es: 'Ocaso Ball', en: 'Dusk Ball', icon: icon('dusk_ball'), rule: '×3 de noche.', recipe: 'Verde + negro + verde', mult: (i) => (i.night ? 3 : 1) },
+  { id: 'quick', top: true, es: 'Veloz Ball', en: 'Quick Ball', icon: icon('quick_ball'), rule: '×5 si la lanzas en el turno 1.', recipe: 'Azul + amarillo + azul', mult: (i) => (i.turn <= 1 ? 5 : 1) },
+  { id: 'dusk', top: true, es: 'Ocaso Ball', en: 'Dusk Ball', icon: icon('dusk_ball'), rule: '×3 de noche.', recipe: 'Verde + negro + verde', mult: (i) => (i.night ? 3 : 1) },
   { id: 'fast', es: 'Rapid Ball', en: 'Fast Ball', icon: icon('fast_ball'), rule: '×4 si su Velocidad base es 100 o más.', recipe: 'Rojo + amarillo + rojo', mult: (i) => (i.baseSpeed >= 100 ? 4 : 1) },
   { id: 'net', es: 'Malla Ball', en: 'Net Ball', icon: icon('net_ball'), rule: '×3,5 contra tipo Bicho o Agua.', recipe: 'Negro + azul + negro', mult: (i) => (i.types.includes('bug') || i.types.includes('water') ? 3.5 : 1) },
   { id: 'dive', es: 'Buceo Ball', en: 'Dive Ball', icon: icon('dive_ball'), rule: '×3,5 si está en el agua.', recipe: 'Azul + rosa + azul', mult: (i) => (i.water ? 3.5 : 1) },
   { id: 'repeat', es: 'Acopio Ball', en: 'Repeat Ball', icon: icon('repeat_ball'), rule: '×3,5 si ya tienes esa especie.', mult: (i) => (i.owned ? 3.5 : 1) },
   { id: 'nest', es: 'Nido Ball', en: 'Nest Ball', icon: icon('nest_ball'), rule: 'Mejor cuanto menor sea su nivel (por debajo de 30).', recipe: 'Verde + amarillo + verde', mult: (i) => (i.level < 30 ? 1 + (40 - i.level) / 10 : 1) },
-  { id: 'timer', es: 'Turno Ball', en: 'Timer Ball', icon: icon('timer_ball'), rule: 'Mejora cada turno: ×(1 + 0,3 × turno), máximo ×4.', recipe: 'Rojo + negro + blanco', mult: (i) => Math.min(1 + 0.3 * i.turn, 4) },
+  { id: 'timer', top: true, es: 'Turno Ball', en: 'Timer Ball', icon: icon('timer_ball'), rule: 'Mejora cada turno: ×(1 + 0,3 × turno), máximo ×4.', recipe: 'Rojo + negro + blanco', mult: (i) => Math.min(1 + 0.3 * i.turn, 4) },
   {
     id: 'heavy', es: 'Peso Ball', en: 'Heavy Ball', icon: icon('heavy_ball'), rule: 'Suma o resta a la tasa de captura según el peso.', recipe: 'Azul + azul + azul', mult: () => 1,
     rateBonus: (i) => (i.weightKg >= 409.6 ? 40 : i.weightKg >= 307.2 ? 30 : i.weightKg >= 205 ? 20 : i.weightKg >= 102.4 ? 0 : -20),
@@ -75,6 +76,25 @@ export function catchChance(i: CatchInput, ball: Ball) {
   const b = 65536 / Math.pow(255 / a, 0.1875)
   return Math.pow(b / 65536, 4)
 }
+
+/** Balls que no cambian la captura en PokeBedrock (o casi): solo para coleccionar o casos raros. craft = tiene receta de tapa. */
+export const OTHER_BALLS: { id: string; es: string; en: string; icon: string; rule: string; craft: boolean; verified?: boolean }[] = [
+  { id: 'love', es: 'Amor Ball', en: 'Love Ball', icon: icon('love_ball'), rule: '×8 si ya llevas uno de la misma especie y de género opuesto (y ninguno es sin género).', craft: true, verified: true },
+  { id: 'park', es: 'Parque Ball', en: 'Park Ball', icon: icon('park_ball'), rule: 'Captura siempre, como la Master Ball. Existe receta de la Ball, pero la tapa no se puede fabricar.', craft: false, verified: true },
+  { id: 'beast', es: 'Ente Ball', en: 'Beast Ball', icon: icon('beast_ball'), rule: 'La única que no sufre el ×0,1 contra Ultraentes. No se fabrica.', craft: false, verified: true },
+  { id: 'premier', es: 'Honor Ball', en: 'Premier Ball', icon: icon('premier_ball'), rule: '×1. Solo estética (blanca).', craft: true, verified: true },
+  { id: 'level', es: 'Nivel Ball', en: 'Level Ball', icon: icon('level_ball'), rule: '×1 en PokeBedrock: el bonus por nivel no está programado.', craft: true, verified: true },
+  { id: 'moon', es: 'Luna Ball', en: 'Moon Ball', icon: icon('moon_ball'), rule: '×1 en PokeBedrock: el bonus no está programado.', craft: true, verified: true },
+  { id: 'lure', es: 'Cebo Ball', en: 'Lure Ball', icon: icon('lure_ball'), rule: '×1 en PokeBedrock: el bonus de pesca no está programado.', craft: true, verified: true },
+  { id: 'heal', es: 'Sana Ball', en: 'Heal Ball', icon: icon('heal_ball'), rule: '×1. En los juegos cura al Pokémon capturado.', craft: true, verified: true },
+  { id: 'friend', es: 'Amigo Ball', en: 'Friend Ball', icon: icon('friend_ball'), rule: '×1 al capturar. En los juegos sube la amistad.', craft: true },
+  { id: 'luxury', es: 'Lujo Ball', en: 'Luxury Ball', icon: icon('luxury_ball'), rule: '×1 al capturar. En los juegos sube la amistad más rápido.', craft: true },
+  { id: 'sport', es: 'Competi Ball', en: 'Sport Ball', icon: icon('sport_ball'), rule: '×1. Estética.', craft: true, verified: true },
+  { id: 'safari', es: 'Safari Ball', en: 'Safari Ball', icon: icon('safari_ball'), rule: '×1. Te las da el guía de la Zona Safari.', craft: true, verified: true },
+  { id: 'dream', es: 'Ensueño Ball', en: 'Dream Ball', icon: icon('dream_ball'), rule: '×1. No se fabrica.', craft: false, verified: true },
+  { id: 'cherish', es: 'Gloria Ball', en: 'Cherish Ball', icon: icon('cherish_ball'), rule: '×1. De eventos; no se fabrica.', craft: false, verified: true },
+  { id: 'gs', es: 'GS Ball', en: 'GS Ball', icon: icon('gs_ball'), rule: '×1. Coleccionable; no se fabrica.', craft: false, verified: true },
+]
 
 /** Lanzamientos necesarios para tener un 90 % de probabilidad acumulada. */
 export const throwsFor90 = (p: number) => (p >= 1 ? 1 : p <= 0 ? Infinity : Math.ceil(Math.log(0.1) / Math.log(1 - p)))
