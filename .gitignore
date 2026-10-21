@@ -3,3 +3,6 @@ dist
 _sources
 sync/*
 !sync/.gitkeep
+
+# Configuración local de IntelliJ
+.idea
