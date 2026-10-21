@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@theme {
+  --font-pixel: "Pixelify Sans", ui-monospace, monospace;
+  --font-sans: "Nunito", system-ui, sans-serif;
+
+  --color-dex-red: #c62828;
+  --color-dex-red-dark: #8e1b1b;
+  --color-dex-red-light: #ef5350;
+  --color-screen: #1e2229;
+  --color-screen-2: #262b34;
+  --color-screen-3: #313744;
+  --color-ink: #e9edf2;
+  --color-ink-dim: #a3adbb;
+  --color-led: #4fc3f7;
+  --color-mc: #c6c6c6;
+  --color-mc-dark: #555555;
+  --color-good: #66bb6a;
+  --color-warn: #ffca28;
+  --color-bad: #ef5350;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background-color: #14161b;
+  background-image:
+    linear-gradient(45deg, #181b21 25%, transparent 25%),
+    linear-gradient(-45deg, #181b21 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #181b21 75%),
+    linear-gradient(-45deg, transparent 75%, #181b21 75%);
+  background-size: 24px 24px;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+/* Bloques con relieve estilo Minecraft */
+.mc-bevel {
+  box-shadow:
+    inset 3px 3px 0 rgb(255 255 255 / 0.18),
+    inset -3px -3px 0 rgb(0 0 0 / 0.35);
+}
+.screen {
+  background: var(--color-screen-2);
+  border: 3px solid #0d0f13;
+  box-shadow:
+    inset 2px 2px 0 rgb(255 255 255 / 0.06),
+    inset -2px -2px 0 rgb(0 0 0 / 0.4);
+}
+.mc-btn {
+  font-family: var(--font-pixel);
+  background: #8b8b8b;
+  color: #fff;
+  text-shadow: 2px 2px 0 #3f3f3f;
+  border: 2px solid #000;
+  box-shadow:
+    inset 2px 2px 0 #c6c6c6,
+    inset -2px -3px 0 #555;
+  transition: background 0.12s;
+}
+.mc-btn:hover {
+  background: #7d8dd6;
+  box-shadow:
+    inset 2px 2px 0 #a9b6f0,
+    inset -2px -3px 0 #4a5694;
+}
+.mc-btn[aria-pressed="true"],
+.mc-btn.active {
+  background: #3f8f3f;
+  box-shadow:
+    inset 2px 2px 0 #77c977,
+    inset -2px -3px 0 #245a24;
+}
+
+.pixelated {
+  image-rendering: pixelated;
+}
+
+.scroll-thin::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.scroll-thin::-webkit-scrollbar-thumb {
+  background: #4a5160;
+  border: 2px solid #1e2229;
+}
+
+input[type="range"] {
+  accent-color: var(--color-dex-red-light);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

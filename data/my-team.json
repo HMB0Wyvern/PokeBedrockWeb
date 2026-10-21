@@ -1,0 +1,317 @@
+{
+  "updatedAt": "2026-10-21",
+  "source": "Captura del equipo + menús de ataques (21/10/2026). Objetos según el usuario.",
+  "party": [
+    {
+      "species": "typhlosion",
+      "level": 47,
+      "gender": "M",
+      "hp": [
+        21,
+        135
+      ],
+      "heldItem": "scopelens",
+      "moves": [
+        "quickattack",
+        "flamecharge",
+        "flamewheel",
+        "swift"
+      ],
+      "movesConfirmed": true,
+      "notes": "Antes Quilava Nv. 33. Typhlosion normal (no de Hisui).",
+      "heldItemConfirmed": true
+    },
+    {
+      "species": "luxray",
+      "level": 41,
+      "gender": "M",
+      "hp": [
+        95,
+        127
+      ],
+      "heldItem": "luckyegg",
+      "moves": [
+        "spark",
+        "bite",
+        "leer",
+        "thundershock"
+      ],
+      "movesConfirmed": true,
+      "notes": "Antes Luxio Nv. 26.",
+      "heldItemConfirmed": true
+    },
+    {
+      "species": "rhyhorn",
+      "level": 34,
+      "gender": "F",
+      "hp": [
+        105,
+        105
+      ],
+      "heldItem": "widelens",
+      "moves": [
+        "bulldoze",
+        "stomp",
+        "rockblast",
+        "hornattack"
+      ],
+      "movesConfirmed": true,
+      "notes": "Evoluciona a Rhydon al nivel 42.",
+      "heldItemConfirmed": true
+    },
+    {
+      "species": "weezing",
+      "level": 36,
+      "gender": "F",
+      "hp": [
+        100,
+        103
+      ],
+      "heldItem": "expshare",
+      "moves": [
+        "sludge",
+        "assurance",
+        "poisongas",
+        "clearsmog"
+      ],
+      "movesConfirmed": true,
+      "notes": "Antes Koffing Nv. 31. Weezing normal (no de Galar).",
+      "heldItemConfirmed": true
+    },
+    {
+      "species": "lokix",
+      "level": 35,
+      "gender": "M",
+      "hp": [
+        83,
+        102
+      ],
+      "heldItem": "focusband",
+      "moves": [
+        "lunge",
+        "assurance",
+        "doublekick",
+        "bugbite"
+      ],
+      "movesConfirmed": true,
+      "notes": "",
+      "heldItemConfirmed": true
+    },
+    {
+      "species": "reshiram",
+      "level": 36,
+      "gender": null,
+      "hp": [
+        58,
+        118
+      ],
+      "heldItem": "scopelens",
+      "moves": [
+        "dragonbreath",
+        "firefang",
+        "ancientpower",
+        "extrasensory"
+      ],
+      "movesConfirmed": true,
+      "notes": "Legendario, sin género.",
+      "heldItemConfirmed": true
+    }
+  ],
+  "boxes": [
+    {
+      "name": "Caja 1",
+      "purpose": "Combate: reservas",
+      "mons": [
+        {
+          "species": "corviknight"
+        },
+        {
+          "species": "electivire"
+        },
+        {
+          "species": "guzzlord"
+        },
+        {
+          "species": "nidoqueen"
+        },
+        {
+          "species": "clefable"
+        },
+        {
+          "species": "drednaw"
+        },
+        {
+          "species": "honchkrow"
+        },
+        {
+          "species": "hippowdon"
+        },
+        {
+          "species": "bewear"
+        },
+        {
+          "species": "espathra"
+        },
+        {
+          "species": "pyroar"
+        },
+        {
+          "species": "dusclops"
+        },
+        {
+          "species": "scyther"
+        },
+        {
+          "species": "taurospaldeacombat",
+          "note": "Forma de Paldea sin confirmar (Combatiente, Llameante o Acuática)"
+        },
+        {
+          "species": "growlithe",
+          "note": "Growlithe o Arcanine: sin confirmar"
+        }
+      ]
+    },
+    {
+      "name": "Caja 2",
+      "purpose": "Para criar",
+      "mons": [
+        {
+          "species": "nacli"
+        },
+        {
+          "species": "phanpy"
+        },
+        {
+          "species": "starly"
+        },
+        {
+          "species": "cufant"
+        },
+        {
+          "species": "noibat"
+        },
+        {
+          "species": "charcadet"
+        },
+        {
+          "species": "palpitoad"
+        },
+        {
+          "species": "impidimp"
+        },
+        {
+          "species": "rolycoly"
+        },
+        {
+          "species": "carkol"
+        },
+        {
+          "species": "torchic"
+        },
+        {
+          "species": "electrike"
+        },
+        {
+          "species": "ponyta"
+        },
+        {
+          "species": "ponytagalar"
+        },
+        {
+          "species": "slowpoke"
+        },
+        {
+          "species": "nidoranm"
+        },
+        {
+          "species": "nidoranf"
+        },
+        {
+          "species": "skiddo"
+        },
+        {
+          "species": "drifloon"
+        },
+        {
+          "species": "deerling"
+        },
+        {
+          "species": "boldore"
+        },
+        {
+          "species": "doduo"
+        }
+      ]
+    },
+    {
+      "name": "Caja 3",
+      "purpose": "Prescindibles",
+      "mons": [
+        {
+          "species": "luxio"
+        },
+        {
+          "species": "phanpy"
+        },
+        {
+          "species": "impidimp"
+        },
+        {
+          "species": "koffing"
+        },
+        {
+          "species": "bidoof"
+        },
+        {
+          "species": "bidoof"
+        },
+        {
+          "species": "litleo"
+        },
+        {
+          "species": "azurill"
+        },
+        {
+          "species": "chatot",
+          "gender": "F"
+        },
+        {
+          "species": "shuckle"
+        },
+        {
+          "species": "flamigo"
+        },
+        {
+          "species": "girafarig"
+        },
+        {
+          "species": "bramblin"
+        },
+        {
+          "species": "karrablast"
+        },
+        {
+          "species": "spritzee"
+        },
+        {
+          "species": "throh"
+        },
+        {
+          "species": "unfezant"
+        },
+        {
+          "species": "bouffalant"
+        },
+        {
+          "species": "flabebe"
+        },
+        {
+          "species": null,
+          "label": "RocaPuño",
+          "note": "No reconozco este nombre: ¿es un mote? Dime qué Pokémon es."
+        }
+      ]
+    }
+  ],
+  "boxesNote": "Lista pegada por el usuario el 21/10/2026, sin géneros ni IVs. Faltan algunos Pokémon sin actualizar."
+}
